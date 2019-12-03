@@ -1,19 +1,20 @@
 package com.template.ultimaterepository
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.template.ultimaterepository.ui.main.MainFragment
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
+        setSupportActionBar(toolbar)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
-                .commitNow()
-        }
+        navController = this.findNavController(R.id.myNavHostFragment)
+        toolbar.elevation = 4.0F
     }
-
 }
