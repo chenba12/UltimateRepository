@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.template.ultimaterepository.R
 import com.template.ultimaterepository.data.AppRepository
+import com.template.ultimaterepository.data.BaseItem
 import com.template.ultimaterepository.data.Pet
 import com.template.ultimaterepository.databinding.MainFragmentBinding
 import com.template.ultimaterepository.recyclerView.GenericAdapter
@@ -37,10 +39,11 @@ class MainFragment : BaseFragment() {
         binding.lifecycleOwner = this
 
         val genericAdapter = GenericAdapter<Pet>(R.layout.pet_list_item)
-
+        val manager = LinearLayoutManager(context)
+        binding.recyclerView.layoutManager=manager
         genericAdapter.setOnListItemViewClickListener(object : GenericAdapter.OnListItemViewClickListener{
-            override fun onClick(view: View, position: Int) {
-                Toast.makeText(view.context, "Clicked at row $position", Toast.LENGTH_LONG).show()
+            override fun onClick(view: View, item: BaseItem ) {
+                Toast.makeText(view.context, "Clicked at row ${(item as Pet).name}", Toast.LENGTH_SHORT).show()
             }
 
         })
@@ -50,7 +53,6 @@ class MainFragment : BaseFragment() {
         list.add(Pet("3","moshe3","jgfgdxhtgf"))
 
         genericAdapter.addItems(list)
-        genericAdapter.notifyDataSetChanged()
         Timber.wtf(genericAdapter.itemCount.toString())
         binding.recyclerView.adapter = genericAdapter
 

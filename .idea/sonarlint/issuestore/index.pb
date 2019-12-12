@@ -23,11 +23,13 @@ r
 Bapp/src/main/java/com/template/ultimaterepository/utils/ViewExt.kt,2\f\2fdff8c0ab957824e54a70e8b26075ea4351691d
 z
 Japp/src/main/java/com/template/ultimaterepository/ui/main/BaseViewModel.kt,6\9\69a1f742ff36612720953f133536bba0f2ec3257
-‚
-Rapp/src/main/java/com/template/ultimaterepository/recyclerView/baseRecyclerView.kt,8\b\8bdb058504eebe8e87222977d8c884ae5b5858c4
 r
 Bapp/src/main/java/com/template/ultimaterepository/data/BaseItem.kt,4\9\4917b770f04c2d24ebf33749708da3908dbe0506
 m
 =app/src/main/java/com/template/ultimaterepository/data/Pet.kt,c\2\c2d2ad9715af86a1d43b354aef8de96065a2d2c6
-m
-=app/src/main/java/com/template/ultimaterepository/data/try.kt,3\e\3ede5b9c6ef0b4158a18eacc38e2d749185b5fc7
+€
+Papp/src/main/java/com/template/ultimaterepository/recyclerView/GenericAdapter.kt,3\8\387bad54ef8a5d02f3e3f1af3df9a7dd48309f25
+|
+Lapp/src/main/java/com/template/ultimaterepository/data/local/PetsDatabase.kt,8\b\8b8f58f4d3f87af5133203a76372fb7a57ebb654
+w
+Gapp/src/main/java/com/template/ultimaterepository/data/local/PetsDao.kt,f\3\f3718bbe8d9c1f8bd6c485c90769c6647e2cd464

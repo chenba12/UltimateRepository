@@ -37,10 +37,10 @@ class GenericAdapter<T : BaseItem>(@LayoutRes val layoutId: Int) :
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: GenericViewHolder<T>, position: Int) {
-        val itemViewModel = items[position]
-        itemViewModel.adapterPosition = position
-        onListItemViewClickListener?.let { itemViewModel.onListItemViewClickListener = it }
-        holder.bind(itemViewModel)
+        val item = items[position]
+        item.adapterPosition = position
+        onListItemViewClickListener?.let { item.onListItemViewClickListener = it }
+        holder.bind(item)
     }
 
 
@@ -55,7 +55,7 @@ class GenericAdapter<T : BaseItem>(@LayoutRes val layoutId: Int) :
     }
 
     interface OnListItemViewClickListener{
-        fun onClick(view: View, position: Int)
+        fun onClick(view: View, item:BaseItem)
 
     }
 }
