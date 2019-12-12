@@ -17,13 +17,13 @@ interface PetsDao {
     @Query("SELECT * FROM Pets")
     fun observePets(): LiveData<List<Pet>>
 
-    @Query("SELECT * FROM Pets WHERE id = :taskId")
+    @Query("SELECT * FROM Pets WHERE uid = :taskId")
     fun observePetById(taskId: String): LiveData<Pet>
 
     @Query("SELECT * FROM Pets")
     suspend fun getPets(): List<Pet>
 
-    @Query("SELECT * FROM Pets WHERE id = :taskId")
+    @Query("SELECT * FROM Pets WHERE uid = :taskId")
     suspend fun getPetById(taskId: String): Pet?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -32,10 +32,10 @@ interface PetsDao {
     @Update
     suspend fun updatePet(task: Pet): Int
 
-    @Query("UPDATE Pets SET adopted = :adopted WHERE id = :taskId")
+    @Query("UPDATE Pets SET adopted = :adopted WHERE uid = :taskId")
     suspend fun updateAdopted(taskId: String, adopted: Boolean)
 
-    @Query("DELETE FROM Pets WHERE id = :petId")
+    @Query("DELETE FROM Pets WHERE uid = :petId")
     suspend fun deletePetById(petId: String): Int
 
     @Query("DELETE FROM Pets")
