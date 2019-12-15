@@ -22,7 +22,6 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
-import com.template.ultimaterepository.Event
 import com.template.ultimaterepository.R
 import com.template.ultimaterepository.ScrollChildSwipeRefreshLayout
 
@@ -38,18 +37,18 @@ fun View.showSnackbar(snackbarText: String, timeLength: Int) {
 /**
  * Triggers a snackbar message when the value contained by snackbarTaskMessageLiveEvent is modified.
  */
-fun View.setupSnackbar(
-    lifecycleOwner: LifecycleOwner,
-    snackbarEvent: LiveData<Event<Int>>,
-    timeLength: Int
-) {
-
-    snackbarEvent.observe(lifecycleOwner, Observer { event ->
-        event.getContentIfNotHandled()?.let {
-            showSnackbar(context.getString(it), timeLength)
-        }
-    })
-}
+//fun View.setupSnackbar(
+//    lifecycleOwner: LifecycleOwner,
+//    snackbarEvent: LiveData<Event<Int>>,
+//    timeLength: Int
+//) {
+//
+//    snackbarEvent.observe(lifecycleOwner, Observer { event ->
+//        event.getContentIfNotHandled()?.let {
+//            showSnackbar(context.getString(it), timeLength)
+//        }
+//    })
+//}
 
 fun Fragment.setupRefreshLayout(
     refreshLayout: ScrollChildSwipeRefreshLayout,

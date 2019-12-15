@@ -4,6 +4,9 @@ import android.app.Application
 import androidx.room.Room
 import com.template.ultimaterepository.data.AppRepository
 import com.template.ultimaterepository.data.local.PetsDatabase
+import com.template.ultimaterepository.data.remote.ApiCalls
+import com.template.ultimaterepository.data.shared.SharedPref
+import com.template.ultimaterepository.data.shared.SharedPrefImpl
 import com.template.ultimaterepository.ui.main.MainFragmentViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -23,7 +26,9 @@ class App : Application() {
                 Room.databaseBuilder(androidContext(),
                     PetsDatabase::class.java, "pets-database").build()
             }
-            single { AppRepository(get()) }
+            single { ApiCalls() }
+            single {SharedPrefImpl(androidContext())as SharedPref}
+            single { AppRepository(get(),get(),get())}
             viewModel { (appRepository: AppRepository) -> MainFragmentViewModel(appRepository) }
         }
 
